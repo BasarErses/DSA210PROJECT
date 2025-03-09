@@ -1,55 +1,55 @@
 ## Optimizing Battery Efficiency Across Devices and Usage Patterns
 
-### Project Overview
-This project analyzes battery efficiency across devices (laptops, tablets, smartphones) during various computing tasks. By tracking battery life, CPU utilization, temperature, and brightness levels for tasks like gaming, video editing, streaming, coding, and idle states, it identifies optimal usage patterns to maximize battery life and performance.
+### Project Proposal Outline
+This project analyzes battery efficiency across multiple device types—laptops, tablets, and smartphones—under various common computing tasks. The study investigates how battery life, CPU utilization, device temperature, memory usage, and screen brightness correlate with tasks such as gaming, video editing, streaming, coding, and idle states. The aim is to identify practical usage patterns and device-specific recommendations for maximizing battery life and performance.
 
-### Objectives
-- **Detailed Performance Analysis:** Evaluate how different tasks affect battery life.
-- **Identify Optimal Usage Patterns:** Determine which tasks and devices yield the best battery efficiency.
-- **Impact of User-Controlled Settings:** Analyze how brightness and task prioritization affect battery performance.
-- **Provide Actionable Recommendations:** Offer practical, data-driven guidelines for extending battery life.
+### Motivation
+Understanding battery efficiency is crucial as devices become more central to daily life, impacting productivity, entertainment, and communication. Optimizing battery performance can significantly enhance user experience by reducing device downtime and prolonging hardware lifespan. This project provides insights and actionable recommendations that directly benefit device users seeking optimal performance.
 
 ### Dataset
-- **Date**
-- **Device Model** (laptops, tablets, smartphones)
+The dataset includes:
+- **Date of Measurement**
+- **Device Model** (laptop, tablet, smartphone)
 - **Operating System Version**
 - **Task Type** (Gaming, Video Editing, Streaming, Coding, Idle)
 - **Brightness Level (%)**
 - **Battery Life** (hours:minutes)
-- **Battery Health (%)**
+- **Battery Health (%)** (to assess degradation over time)
 - **Device Temperature (°C)**
 - **CPU Utilization (%)**
 - **Memory Usage (% RAM)**
 
-### Tools and Technologies
-- **Python**: Data analysis
-- **Pandas**: Data manipulation
-- **Matplotlib & Seaborn**: Visualization
-- **SciPy & Statsmodels**: Statistical testing
+### Data Source and Collection Method
+Data will be collected systematically using built-in device diagnostics tools and third-party applications capable of monitoring battery performance, CPU usage, memory consumption, and temperature. The data collection will span several weeks to ensure consistency, reliability, and representation across multiple scenarios and conditions.
 
-### Analysis Plan
+### Data Analysis Plan
+The analysis will be conducted in several stages:
+
 1. **Data Collection and Preprocessing:**
-   - Standardize and preprocess data.
+   - Standardize and preprocess raw data, addressing missing values and normalizing measurements.
 
 2. **Exploratory Data Analysis (EDA):**
-   - Visualize battery performance correlations.
+   - Visualizations and correlation analyses to identify initial patterns and relationships.
 
 3. **Hypothesis Testing:**
-   - **H₀:** Brightness doesn't significantly impact battery life.
-   - **H₁:** Device types have differing efficiencies for intensive tasks.
+   - Broad hypotheses to encompass multiple factors:
+     - **H₀:** Device performance metrics (brightness, CPU usage, temperature, memory usage) do not significantly affect battery life across different tasks and device types.
+     - **H₁:** One or more device performance metrics significantly influence battery life, varying across different tasks and device types.
 
 4. **Comparative Analysis:**
-   - Identify device-specific performance differences.
+   - Compare performance across device models and operating systems to pinpoint the most efficient hardware and software combinations.
 
-5. **Trend Identification:**
-   - Monitor battery health over time.
+5. **Trend and Longitudinal Analysis:**
+   - Evaluate battery health trends over time to understand degradation impacts related to task intensity and device usage patterns.
 
-### Example Analysis
-- **Brightness vs. Battery Life:** Investigate brightness levels vs. battery performance.
-- **Device Comparison:** Compare battery life across device types for intensive tasks.
+### Findings (Anticipated)
+The project expects to identify clear correlations between screen brightness, CPU utilization, memory usage, device temperature, and battery longevity. It also aims to highlight specific devices that excel in battery efficiency under intensive usage conditions. Results will include concrete recommendations on optimal usage settings for users seeking to extend device battery life.
+
+### Limitations and Future Work
+Potential limitations include variability in battery health across devices, device-specific measurement discrepancies, and environmental factors affecting battery performance. Future work might include expanding the dataset to cover additional device brands and models, implementing automated monitoring solutions, and exploring machine learning techniques to predict battery lifespan and performance.
 
 ### Expected Outcomes
-- Recommended brightness settings.
-- Identification of the most efficient devices.
-- Practical strategies to enhance battery lifespan.
+- Specific recommendations for brightness settings, CPU and memory usage, and task prioritization.
+- Identification of the most battery-efficient device categories and models.
+- Practical strategies for users to prolong battery life and device longevity.
 
