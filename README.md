@@ -2,7 +2,7 @@
 
 Daily Screen Time and Creative Productivity Analysis
 
-Project Overview
+**Project Overview**
 
 This project investigates how daily screen time—spent across various digital activities such as gaming, social media, streaming services, and internet browsing—affects creative productivity, motivation, and overall creative quality. By tracking detailed screen usage patterns and daily creative output, the project aims to identify correlations and insights that can inform strategies for maximizing creative performance.
 
