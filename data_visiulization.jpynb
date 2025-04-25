@@ -1,0 +1,64 @@
+
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": ["# Data Visualization and Insights"]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import matplotlib.pyplot as plt
+",
+        "import seaborn as sns
+",
+        "
+",
+        "# Plot distribution of Battery Life
+",
+        "plt.figure(figsize=(10, 6))
+",
+        "sns.histplot(data['Battery Life (minutes)'], kde=True, bins=20)
+",
+        "plt.title('Distribution of Battery Life (in minutes)')
+",
+        "plt.xlabel('Battery Life (minutes)')
+",
+        "plt.ylabel('Frequency')
+",
+        "plt.show()"
+      ],
+      "execution_count": 1
+    },
+    {
+      "cell_type": "markdown",
+      "source": ["### Correlation Heatmap"]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Correlation heatmap
+",
+        "plt.figure(figsize=(12, 8))
+",
+        "sns.heatmap(data.corr(), annot=True, cmap='coolwarm', fmt='.2f')
+",
+        "plt.title('Correlation Heatmap')
+",
+        "plt.show()"
+      ],
+      "execution_count": 2
+    }
+  ]
+}
