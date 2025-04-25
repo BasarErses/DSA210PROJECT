@@ -43,16 +43,5 @@ A linear regression model was trained to predict battery life (in minutes). Feat
 - Could be extended with external real-time device logging data
 - More advanced models (e.g., RandomForest, XGBoost) can be tried
 
-## 💡 How to Run
-1. Clone the repo
-2. Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-3. Run notebooks in this order:
-   - `data_process.ipynb`
-   - `data_visualization.ipynb`
-   - `ml_modeling.ipynb`
-
 ---
 
