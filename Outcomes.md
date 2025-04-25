@@ -41,7 +41,7 @@ A linear regression model was trained to predict battery life (in minutes). Feat
 ## 🚧 Limitations & Future Work
 - Dataset is simulated and may not reflect all edge-case scenarios
 - Could be extended with external real-time device logging data
-- More advanced models (e.g., RandomForest, XGBoost) can be tried
+- More advanced models can be tried
 
 ---
 
