@@ -54,13 +54,5 @@ A linear regression model was trained to predict battery life (in minutes). Feat
    - `data_visualization.ipynb`
    - `ml_modeling.ipynb`
 
-## 🤖 AI Assistance Disclosure
-This project used OpenAI's ChatGPT to assist with:
-- Python code generation
-- Data structure design
-- Documentation wording
-
-All prompts and results were documented for transparency.
-
 ---
 
