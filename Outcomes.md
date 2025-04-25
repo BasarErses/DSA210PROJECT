@@ -17,8 +17,6 @@ battery_efficiency_project/
 ├── README.md                     # Project documentation
 ```
 
-## 🔍 Data Source
-The dataset was synthetically generated to simulate real-world battery performance measurements. It includes multiple device models, task types, and performance indicators.
 
 ## 📊 Analysis Overview
 - Data was cleaned and battery life converted into minutes
