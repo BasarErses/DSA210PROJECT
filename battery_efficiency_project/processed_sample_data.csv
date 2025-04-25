@@ -1,0 +1,11 @@
+Date of Measurement,Device Model,Operating System Version,Task Type,Brightness Level (%),Battery Health (%),Device Temperature (°C),CPU Utilization (%),Memory Usage (% RAM),Battery Life (minutes)
+2025-04-09,iPhone 15 Pro,ios 17.4,Idle,28,85,49.7,45,47,396
+2025-04-16,Pixel 7,ios 17.4,Streaming,90,94,42.6,50,75,319
+2025-04-25,"MacBook Pro 14""",Android 13,Gaming,79,85,48.4,50,38,156
+2025-04-10,Galaxy S22,Windows 11 23H2,Gaming,77,93,45.7,60,46,479
+2025-04-14,"MacBook Pro 14""",Windows 11 23H2,Idle,90,85,54.3,87,45,304
+2025-04-28,iPad Air 5,Android 13,Idle,28,98,49.6,34,57,152
+2025-04-15,Pixel 7,Windows 11 23H2,Idle,64,97,41.9,51,69,361
+2025-04-30,"MacBook Pro 14""",Windows 11 23H2,Video Editing,99,92,39.5,85,34,229
+2025-04-22,Pixel 7,ios 17.4,Streaming,100,93,51.6,66,48,314
+2025-04-26,Dell XPS 13,iPadOS 17.4,Video Editing,36,100,49.4,45,76,316
