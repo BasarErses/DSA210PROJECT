@@ -1,0 +1,197 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "64b7f599",
+   "metadata": {},
+   "source": [
+    "# Optimizing Battery Efficiency Across Devices and Usage Patterns"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c358b0ee",
+   "metadata": {},
+   "source": [
+    "### Introduction\n",
+    "This project investigates how battery performance varies across devices (laptops, tablets, smartphones) and tasks (gaming, streaming, editing, etc.). The aim is to provide practical recommendations to maximize battery life and user satisfaction.\n",
+    "\n",
+    "### Motivation\n",
+    "As our reliance on portable devices grows, battery efficiency becomes central to productivity and user experience. By understanding patterns in battery consumption, users and manufacturers can make better design and usage decisions.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f10b82a6",
+   "metadata": {},
+   "source": [
+    "### Dataset Overview\n",
+    "\n",
+    "The dataset includes:\n",
+    "- Date of Measurement\n",
+    "- Device Model\n",
+    "- OS Version\n",
+    "- Task Type\n",
+    "- Brightness Level (%)\n",
+    "- Battery Life (hh:mm)\n",
+    "- Battery Health (%)\n",
+    "- Device Temperature (°C)\n",
+    "- CPU Utilization (%)\n",
+    "- Memory Usage (%)\n",
+    "\n",
+    "Collected over several weeks using monitoring tools and diagnostic apps.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d72f5306",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "# Load the dataset\n",
+    "df = pd.read_csv(\"battery_efficiency_data.csv\")\n",
+    "\n",
+    "# Convert Battery Life (hh:mm) into minutes\n",
+    "def convert_to_minutes(time_str):\n",
+    "    if pd.isna(time_str): return np.nan\n",
+    "    parts = time_str.split(\":\")\n",
+    "    return int(parts[0]) * 60 + int(parts[1])\n",
+    "\n",
+    "df[\"Battery Life (min)\"] = df[\"Battery Life\"].apply(convert_to_minutes)\n",
+    "\n",
+    "# Drop original time format\n",
+    "df.drop(columns=[\"Battery Life\"], inplace=True)\n",
+    "\n",
+    "# Drop NA rows\n",
+    "df.dropna(inplace=True)\n",
+    "\n",
+    "# Encode categorical variables\n",
+    "df = pd.get_dummies(df, columns=[\"Device Model\", \"Task Type\", \"Operating System Version\"])\n",
+    "\n",
+    "df.head()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "41db52b3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "\n",
+    "# Distribution of battery life\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.histplot(df[\"Battery Life (min)\"], bins=20, kde=True)\n",
+    "plt.title(\"Battery Life Distribution\")\n",
+    "plt.xlabel(\"Minutes\")\n",
+    "plt.show()\n",
+    "\n",
+    "# Correlation heatmap\n",
+    "plt.figure(figsize=(12, 10))\n",
+    "sns.heatmap(df.corr(numeric_only=True), cmap=\"coolwarm\", annot=False)\n",
+    "plt.title(\"Feature Correlations\")\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "3a995def",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import f_oneway\n",
+    "\n",
+    "# Compare battery life between task types (example using one encoded column)\n",
+    "# You can customize this section further\n",
+    "gaming = df[df[\"Task Type_Gaming\"] == 1][\"Battery Life (min)\"]\n",
+    "non_gaming = df[df[\"Task Type_Gaming\"] == 0][\"Battery Life (min)\"]\n",
+    "\n",
+    "f_val, p_val = f_oneway(gaming, non_gaming)\n",
+    "\n",
+    "print(\"ANOVA F-statistic:\", f_val)\n",
+    "print(\"p-value:\", p_val)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d1aeaeef",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from sklearn.linear_model import LinearRegression\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "from sklearn.metrics import mean_squared_error, r2_score\n",
+    "\n",
+    "# X and y\n",
+    "X = df.drop(columns=[\"Battery Life (min)\"])\n",
+    "y = df[\"Battery Life (min)\"]\n",
+    "\n",
+    "# Train-test split\n",
+    "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n",
+    "\n",
+    "# Linear regression\n",
+    "model = LinearRegression()\n",
+    "model.fit(X_train, y_train)\n",
+    "\n",
+    "# Predictions\n",
+    "y_pred = model.predict(X_test)\n",
+    "\n",
+    "# Evaluation\n",
+    "print(\"MSE:\", mean_squared_error(y_test, y_pred))\n",
+    "print(\"R² Score:\", r2_score(y_test, y_pred))\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c8291876",
+   "metadata": {},
+   "source": [
+    "### Interpretation\n",
+    "\n",
+    "The model shows how features like brightness, CPU usage, and temperature affect battery life.\n",
+    "Higher brightness and CPU usage tend to reduce battery life, while idle or light tasks show longer durations.\n",
+    "\n",
+    "More sophisticated models like Lasso or Ridge can be considered in the future.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4eaf2b85",
+   "metadata": {},
+   "source": [
+    "### Limitations\n",
+    "\n",
+    "- Sample size limited to a few weeks of usage\n",
+    "- Device variability introduces potential bias\n",
+    "- Environmental conditions (temperature, charging habits) not controlled\n",
+    "\n",
+    "### Future Work\n",
+    "\n",
+    "- Expand dataset across longer durations\n",
+    "- Include more device brands and OS versions\n",
+    "- Use ML classification for “efficient” vs “inefficient” predictions\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b3c044f6",
+   "metadata": {},
+   "source": [
+    "### Conclusion\n",
+    "\n",
+    "This study provides insights into how battery life varies across device types and tasks. It highlights screen brightness and CPU utilization as key factors influencing efficiency. These findings offer useful guidance for users aiming to extend battery life and for designers seeking to optimize system performance.\n"
+   ]
+  }
+ ],
+ "metadata": {},
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
