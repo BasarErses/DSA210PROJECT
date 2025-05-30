@@ -57,7 +57,7 @@ Potential limitations include variability in battery health across devices, devi
 This project has made use of AI tools in accordance with the academic integrity guidelines of the DSA210 course. 
 
 Specifically:
-- Tool Used: ChatGPT (OpenAI GPT-4)
+- Tool Used: ChatGPT (OpenAI GPT-4).
 Purpose of Use:
 - Refining code snippets and analysis structure
 - Improving documentation format (e.g., README layout)
